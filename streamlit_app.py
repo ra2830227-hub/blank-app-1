@@ -89,7 +89,7 @@ with tab2:
                 status = "✅" if row["done"] else "⬜"
                 st.write(f"{status} {row['task']}")
         
-        st.divider()
+st.divider()
         # --- ここから接続テスト用の追記 ---
 st.divider() # 区切り線
 st.subheader("🛠 データベース接続チェック")
