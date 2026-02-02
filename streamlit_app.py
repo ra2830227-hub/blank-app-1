@@ -90,6 +90,22 @@ with tab2:
                 st.write(f"{status} {row['task']}")
         
         st.divider()
+        # --- ここから接続テスト用の追記 ---
+st.divider() # 区切り線
+st.subheader("🛠 データベース接続チェック")
+
+try:
+    # Secretsを使って接続
+    conn = st.connection("supabase", type=SupabaseConnection)
+    # todosテーブルから1件だけ試しに取ってくる
+    test_res = conn.table("todos").select("*").limit(1).execute()
+    st.success("✅ Supabaseと繋がっています！")
+    st.write("取得テスト結果:", test_res.data)
+except Exception as e:
+    st.error("❌ まだSupabaseと繋がっていないようです。")
+    st.info("エラー詳細を確認してください：")
+    st.code(e)
+# --- ここまで ---
         st.write("#### 全履歴データ")
         st.dataframe(history_df, use_container_width=True)
     else:
