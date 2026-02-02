@@ -9,8 +9,8 @@ st.title("📝 学習ToDo & 振り返りログ")
 
 # 2. Supabase接続設定 (Secretsの名前を [supabase] url/key に合わせる)
 try:
-    url = st.secrets["supabase"]["url"]
-    key = st.secrets["supabase"]["key"]
+    url = st.secrets["url"]
+    key = st.secrets["key"]
     supabase = create_client(url, key)
 except Exception as e:
     st.error("Secretsの設定を確認してください。名前が [supabase] url, key になっていますか？")
