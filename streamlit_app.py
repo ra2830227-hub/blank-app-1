@@ -1,4 +1,12 @@
 import streamlit as st
+from supabase import client
+url = st.secrets["SUPABASE_URL"]
+key = st.secrets["SUPABASE_KEY"]
+
+supabase = create_client(url,key)
+
+
+import streamlit as st
 import pandas as pd
 from datetime import date
 import os
